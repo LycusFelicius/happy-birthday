@@ -3,6 +3,9 @@ Programs that will say "happy birthday" with ASCII
  
 Don't forget to change the config file (Line 7 - Line 12)
  
+What's New :
+1) Adding color to ASCII
+2) Can randomize ASCII color for each senteces
  
 "THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
