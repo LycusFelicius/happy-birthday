@@ -3,13 +3,18 @@ from os import system
 from time import sleep
 from random import choice
 from pyfiglet import figlet_format
+from termcolor import colored
 #config [Change this]
 name = "feli" #nick name
 full_name = "lycus felicius" #full name
 next_step = ["Good, let's go to the next question.", "Alright, good then.", "Nice answer, let's go then.", "Good job, let's go then."] #responses to next step
-yes_var = ["yes", "yep", "sure", "why not?", "why not", "of course"] #if user say yes...
-no_var = ["no", "not", "nay", "never", "nix"] #if user say no...
+yes_var = ["yes", "yep", "sure", "why not?", "why not", "of course", "absolutely", "definitely", "yup"] #if user say yes...
+no_var = ["no", "not", "nay", "never", "nix", "nope"] #if user say no...
 age = 16 #real age
+is_color = 1 #colored ascii
+random_color = 1 #randomize ascii color (ignore this, if color disabled)
+color = ["grey", "red", "green", "yellow", "blue", "magenta", "cyan", "white"] #random color (ignore this, if color disabled)
+r_color = "blue" #set color (ignore this, if color disabled)
 #setting variable
 num_lies = 0
 congrat = 1
@@ -122,10 +127,16 @@ is_art = str(input(">> "))
 if is_art in yes_var:
     congrat = 1
     while congrat <= icongrat:
-        #print("Happy " + str(age) + "th " + "Birthday " + name + "!")
-        ascii_text = figlet_format("Happy " + str(age) + "th " + "Birthday " + name + "!")
-        print(ascii_text)
-        congrat += 1
+        if is_color == 1:
+            if random_color == 1:
+                r_color = choice(color)
+            ascii_text = colored(figlet_format("Happy " + str(age) + "th " + "Birthday " + name + "!"), color=r_color)
+            print(ascii_text)
+            congrat += 1
+        else:
+            ascii_text = figlet_format("Happy " + str(age) + "th " + "Birthday " + name + "!")
+            print(ascii_text)
+            congrat += 1
 elif is_art in no_var:
     sleep(1)
 else:
@@ -133,10 +144,16 @@ else:
     sleep(2)
     congrat = 1
     while congrat <= icongrat:
-        #print("Happy " + str(age) + "th " + "Birthday " + name + "!")
-        ascii_text = figlet_format("Happy " + str(age) + "th " + "Birthday " + name + "!")
-        print(ascii_text)
-        congrat += 1
+        if is_color == 1:
+            if random_color == 1:
+                r_color = choice(color)
+            ascii_text = colored(figlet_format("Happy " + str(age) + "th " + "Birthday " + name + "!"), color=r_color)
+            print(ascii_text)
+            congrat += 1
+        else:
+            ascii_text = figlet_format("Happy " + str(age) + "th " + "Birthday " + name + "!")
+            print(ascii_text)
+            congrat += 1
 #end
 print("Alright, you can close this now")
 print("Thank you " + name + "!!!")
