@@ -1,9 +1,14 @@
 #importing module
+import sys
 from os import system
 from time import sleep
 from random import choice
 from pyfiglet import figlet_format
 from termcolor import colored
+#arguments
+config_arg = sys.argv[1]
+config_type = sys.argv[2]
+config_value = sys.argv[3]
 #config [Change this]
 name = "feli" #nick name
 full_name = "lycus felicius" #full name
@@ -11,10 +16,35 @@ next_step = ["Good, let's go to the next question.", "Alright, good then.", "Nic
 yes_var = ["yes", "yep", "sure", "why not?", "why not", "of course", "absolutely", "definitely", "yup"] #if user say yes...
 no_var = ["no", "not", "nay", "never", "nix", "nope"] #if user say no...
 age = 16 #real age
-is_color = 1 #colored ascii
-random_color = 1 #randomize ascii color (ignore this, if color disabled)
+is_color = 0 #colored ascii
+random_color = 0 #randomize ascii color (ignore this, if color disabled)
 color = ["grey", "red", "green", "yellow", "blue", "magenta", "cyan", "white"] #random color (ignore this, if color disabled)
 r_color = "blue" #set color (ignore this, if color disabled)
+#config arguments
+if config_arg == "--config":
+    if config_type == "-color":
+        if config_value == "false":
+            is_color = 0
+            print("Successfully disable color")
+            sleep(2)
+            system('cls')
+        elif config_value == "random":
+            is_color = 1
+            random_color = 1
+            print("Successfully change color to random")
+            sleep(2)
+            system('cls')
+        elif config_value in color:
+            is_color = 1
+            r_color = config_value
+            random_color = 0
+            print("Successfully change color to " + config_value)
+            sleep(2)
+            system('cls')
+        else:
+            print("Make sure you use the right arguments!")
+            sleep(2)
+            sys.exit()
 #setting variable
 num_lies = 0
 congrat = 1
