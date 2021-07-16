@@ -9,6 +9,7 @@ from termcolor import colored
 config_arg = sys.argv[1]
 config_type = sys.argv[2]
 config_value = sys.argv[3]
+count_arg = (len(sys.argv)-1)
 #config [Change this]
 name = "feli" #nick name
 full_name = "lycus felicius" #full name
@@ -20,8 +21,12 @@ is_color = 0 #colored ascii
 random_color = 0 #randomize ascii color (ignore this, if color disabled)
 color = ["grey", "red", "green", "yellow", "blue", "magenta", "cyan", "white"] #random color (ignore this, if color disabled)
 r_color = "blue" #set color (ignore this, if color disabled)
+#setting variable
+num_lies = 0
+congrat = 1
+double_quote = ""
 #config arguments
-if config_arg == "--config":
+if config_arg == "--set":
     if config_type == "-color":
         if config_value == "false":
             is_color = 0
@@ -31,23 +36,29 @@ if config_arg == "--config":
         elif config_value == "random":
             is_color = 1
             random_color = 1
-            print("Successfully change color to random")
+            print("Successfully changed color to random")
             sleep(2)
             system('cls')
         elif config_value in color:
             is_color = 1
             r_color = config_value
             random_color = 0
-            print("Successfully change color to " + config_value)
+            print("Successfully changed color to " + config_value)
             sleep(2)
             system('cls')
         else:
             print("Make sure you use the right arguments!")
             sleep(2)
             sys.exit()
-#setting variable
-num_lies = 0
-congrat = 1
+    elif config_type == "-full-name":
+            if count_arg > 3:
+                print("Use quotation marks for full name that has more than one words!")
+                sleep(2)
+                sys.exit()
+            full_name = config_value
+            print("Successfully changed full name")
+            sleep(2)
+            system('cls')
 #opening
 print("Hello, thank you for opening this file ;)")
 sleep(2)
